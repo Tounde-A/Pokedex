@@ -1,0 +1,19 @@
+.header {
+  padding: 1rem;
+  background-color: bisque;
+}
+
+.logo {
+  width: fit-content;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.logo img:first-child {
+  height: 2.5rem;
+}
+
+.logo img:last-child {
+  height: 4rem;
+}
