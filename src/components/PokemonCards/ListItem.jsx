@@ -5,22 +5,10 @@ import { viewAllPkmn } from "../../API/PokedexApi";
 import { pkmnImg } from "../../API/PokedexApi";
 import { svg } from "../../API/PokedexApi";
 
-export const ListItem = () => {
-
-    const [pokemons, setPokemons] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await viewAllPkmn();
-            setPokemons(data);
-        };
-
-        fetchData();
-    }, []);
-
+export const ListItem = ({ list }) => {
     return (
         <>
-            {pokemons.map((pokemon, index) => {
+            {list.map((pokemon, index) => {
                 const imgUrl = `${pkmnImg}${pokemon.id}${svg}`;
                 return (
                 <ItemCard
