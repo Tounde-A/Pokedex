@@ -4,7 +4,7 @@ export const ItemType = ({ types }) => {
 
     return (
         <>
-            {types.map((type, index) => { 
+            {types?.map((type, index) => { 
             const color = getTypeColor(type); 
             return (
                 <span style={{ backgroundColor: color }} key={ index }>{ type }</span>

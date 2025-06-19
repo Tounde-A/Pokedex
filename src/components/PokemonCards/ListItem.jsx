@@ -4,8 +4,16 @@ import { useEffect } from "react";
 import { viewAllPkmn } from "../../API/PokedexApi";
 import { pkmnImg } from "../../API/PokedexApi";
 import { svg } from "../../API/PokedexApi";
+import { useNavigate } from "react-router";
 
 export const ListItem = ({ list }) => {
+
+    const navigate = useNavigate();
+
+    const handleClick = (id) => {
+        navigate(`/pokemon/${id}`);
+    };
+
     return (
         <>
             {list.map((pokemon, index) => {
@@ -18,6 +26,7 @@ export const ListItem = ({ list }) => {
                     url={ imgUrl }
                     alt={ pokemon.name }
                     element={ pokemon.types }
+                    onClick={ handleClick }
                 />
             );
             })}
