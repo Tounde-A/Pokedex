@@ -1,5 +1,5 @@
 import { ItemImage } from "../components/PokemonCards/ItemImage";
-import { pkmnImg } from "../API/PokedexApi";
+import { addReviews, pkmnImg } from "../API/PokedexApi";
 import { svg } from "../API/PokedexApi";
 import { useState, useEffect } from "react";
 import { viewSinglePkmn } from "../API/PokedexApi";
@@ -7,7 +7,10 @@ import { NextPokemon, PrevPokemon } from "../components/PrevNext";
 import { useNavigate, useParams } from "react-router";
 import { ItemName } from "../components/PokemonCards/ItemName";
 import { ItemType } from "../components/PokemonCards/ItemType";
+import { ProgressBar } from "../components/ProgressBar";
 import s from "../components/pokedex.module.css"
+import { LikeCount } from "../components/LikeCount";
+import { updateSinglePkmn } from "../API/PokedexApi";
 
 export const Detail = () => {
 
@@ -16,11 +19,33 @@ export const Detail = () => {
     const { id } = useParams();
 
     const [pokemonInfo, setPokemonInfo] = useState([]);
+    const [pokemonStat, setPokemonStat] = useState([]);
+    const [likeCount, setLikeCount] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             const data = await viewSinglePkmn(id);
             setPokemonInfo(data);
+        };
+
+        fetchData();
+    }, [id]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await viewSinglePkmn(id);
+            setPokemonStat(data.base);
+            setLikeCount(data.like);
+        };
+
+        fetchData();
+    }, [id]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await updateSinglePkmn(id);
+            // setLikeCount(data);
+            // console.log(data)
         };
 
         fetchData();
@@ -40,6 +65,12 @@ export const Detail = () => {
         }
     }
 
+    const handleLike = async () => {
+        const newCount = setLikeCount(prev => prev + 1);
+        const updateLike = await updateSinglePkmn(id, newCount);
+        updateLike;
+    };
+
     const imgUrl = `${pkmnImg}${pokemonInfo.id}${svg}`;
 
     return (
@@ -50,9 +81,11 @@ export const Detail = () => {
             </div>
             <ItemImage img={imgUrl} />
             <div>
-                <ItemName number={''} name={pokemonInfo.name} />
-                <ItemType types={pokemonInfo.types} />
+                <ItemName number={''} name={ pokemonInfo.name } />
+                <ItemType types={ pokemonInfo.types } />
             </div>
+            <ProgressBar stats={ pokemonStat } />
+            <LikeCount count={ likeCount } onClick={ handleLike } />
         </div>
     );
 }

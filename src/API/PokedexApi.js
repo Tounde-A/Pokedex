@@ -6,10 +6,13 @@ export const svg = '.svg';
 export async function viewAllPkmn() {
     try {
         const response = await fetch(baseUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         return data;
     } catch (error) {
-        error.message;
+        console.error(error);
         return [];
     }
 }
@@ -17,10 +20,13 @@ export async function viewAllPkmn() {
 export async function viewSinglePkmn(id) {
     try {
         const response = await fetch(`${baseUrl}/${id}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         return data;
     } catch (error) {
-        error.message;
+        console.error(error);
         return [];
     }
 }
@@ -30,12 +36,15 @@ export async function updateSinglePkmn(id, pokemon) {
         const response = await fetch(`${baseUrl}/${id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(pokemon)
+            body: JSON.stringify({ pokemon })
         });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         return data;
     } catch (error) {
-        error.message;
+        console.error(error);
         return [];
     }
 }
@@ -43,10 +52,13 @@ export async function updateSinglePkmn(id, pokemon) {
 export async function viewSingleReview(id) {
     try {
         const response = await fetch(`${reviewUrl}/?pokemonId=${id}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = response.json();
         return data;
     } catch (error) {
-        error.message;
+        console.error(error);
         return [];
     }
 }
@@ -58,10 +70,13 @@ export async function addReviews(pokemon) {
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(pokemon)
         });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = response.json();
         return data;
     } catch (error) {
-        error.message;
+        console.error(error);
         return [];
     }
 }
