@@ -31,12 +31,12 @@ export async function viewSinglePkmn(id) {
     }
 }
 
-export async function updateSinglePkmn(id, pokemon) {
+export async function updateSinglePkmn(id, updateData) {
     try {
         const response = await fetch(`${baseUrl}/${id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({ pokemon })
+            body: JSON.stringify(updateData)
         });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

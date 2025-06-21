@@ -66,10 +66,12 @@ export const Detail = () => {
     }
 
     const handleLike = async () => {
-        const newCount = setLikeCount(prev => prev + 1);
-        const updateLike = await updateSinglePkmn(id, newCount);
-        updateLike;
+        const newCount = likeCount + 1;
+        await updateSinglePkmn(id, {like: newCount});
+        setLikeCount(newCount);
     };
+
+    console.log(typeof(likeCount));
 
     const imgUrl = `${pkmnImg}${pokemonInfo.id}${svg}`;
 
