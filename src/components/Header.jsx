@@ -4,6 +4,10 @@ import pokedex from '../assets/img/pokedex.png'
 import s from '../components/pokedex.module.css'
 import { ROUTES } from '../config/routes';
 
+/* 
+Display this app logo and redirect to the home page when clicked on.
+*/
+
 export const Header = () => {
     return (
         <nav>

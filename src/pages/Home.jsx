@@ -25,11 +25,15 @@ export const Home = () => {
     });
 
     return (
-        <>
+        <section>
             <div>
                 <Search onSearch={setSearchTerm} />
             </div>
-            <ListItem list={filteredList} />
-        </>
+            {filteredList.length > 0 ? (
+                <ListItem list={filteredList} />
+            ) : (
+                <p>Aucun résultat pour la recherche : "<strong>{searchTerm}</strong>"</p>
+            )}
+        </section>
     );
 }

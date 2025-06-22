@@ -63,12 +63,12 @@ export async function viewSingleReview(id) {
     }
 }
 
-export async function addReviews(pokemon) {
+export async function addReviews(postData) {
     try {
         const response = await fetch(`${reviewUrl}/`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(pokemon)
+            body: JSON.stringify(postData)
         });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);

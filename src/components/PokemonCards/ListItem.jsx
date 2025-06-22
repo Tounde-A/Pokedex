@@ -1,10 +1,11 @@
-import { useState } from "react";
 import { ItemCard } from "./ItemCard";
-import { useEffect } from "react";
-import { viewAllPkmn } from "../../API/PokedexApi";
 import { pkmnImg } from "../../API/PokedexApi";
 import { svg } from "../../API/PokedexApi";
 import { useNavigate } from "react-router";
+
+/* 
+Display this app list of pokemon item and redirect to the detail page when clicked on.
+*/
 
 export const ListItem = ({ list }) => {
 
@@ -15,7 +16,7 @@ export const ListItem = ({ list }) => {
     };
 
     return (
-        <>
+        <ul>
             {list.map((pokemon, index) => {
                 const imgUrl = `${pkmnImg}${pokemon.id}${svg}`;
                 return (
@@ -30,6 +31,6 @@ export const ListItem = ({ list }) => {
                 />
             );
             })}
-        </>
+        </ul>
     );
 }

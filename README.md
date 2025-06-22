@@ -1,3 +1,34 @@
+# Start project
+
+To start the project
+
+Download or clone the repository into your directory.
+
+
+Then, in your IDE's command line, run the following commands:
+
+To install the node_modules dependencies:
+- npm install
+
+To start the local server:
+- npm run dev
+
+To start the JSON server:
+- npx json-server db.json --port 3001
+
+
+(Just in case)
+
+React router
+- npm i react-router
+
+Lucide icons
+- npm install lucide-react
+
+
+You can now explore the application!
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -1,5 +1,9 @@
 import { LucideHeart } from "lucide-react";
 
+/* 
+Display this app like counter when clicked on add 1 like.
+*/
+
 export const LikeCount = ({ count, onClick }) => {
     return (
         <span>
