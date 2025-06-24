@@ -33,7 +33,7 @@ export const Home = () => {
             {filteredList.length > 0 ? (
                 <ListItem className={s.listItem} list={filteredList} />
             ) : (
-                <p>Aucun résultat pour la recherche : "<strong>{searchTerm}</strong>"</p>
+                <p className={ s.noFound }>Aucun résultat pour la recherche : "<strong>{searchTerm}</strong>"</p>
             )}
         </section>
     );
