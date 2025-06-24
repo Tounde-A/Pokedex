@@ -8,11 +8,11 @@ import { useNavigate, useParams } from "react-router";
 import { ItemName } from "../components/PokemonCards/ItemName";
 import { ItemType } from "../components/PokemonCards/ItemType";
 import { ProgressBar } from "../components/ProgressBar";
-import s from "../components/pokedex.module.css"
 import { LikeCount } from "../components/LikeCount";
 import { updateSinglePkmn } from "../API/PokedexApi";
 import { AddReview } from "../components/Reviews/AddReview";
 import { ListItemReview } from "../components/Reviews/ListItemReview";
+import s from "../components/pokedex.module.css"
 
 export const Detail = () => {
 
@@ -101,21 +101,21 @@ export const Detail = () => {
     return (
         <section className={s['bg-img']}>
             <nav>
-                <ul>
+                <ul className={ s.pagination }>
                     <PrevPokemon onClick={ handlePrevious } />
                     <NextPokemon onClick={ handleNext } />
                 </ul>
             </nav>
-            <ItemImage img={imgUrl} />
-            <div>
+            <ItemImage className={ s.detailImg } img={imgUrl} />
+            <div className={ s.pkmnContent }>
                 <ItemName
                     number={''}
                     name={ pokemonInfo.name }
                 />
                 <ItemType types={ pokemonInfo.types } />
             </div>
-            <ProgressBar stats={ pokemonStat } />
-            <div>
+            <ProgressBar className={ s.progressBar } stats={ pokemonStat } />
+            <div className={ s.contentReview }>
                 <LikeCount
                     count={ likeCount }
                     onClick={ handleLike }

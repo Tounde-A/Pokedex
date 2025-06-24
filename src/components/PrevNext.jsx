@@ -1,6 +1,5 @@
 import { LucideArrowBigRight } from "lucide-react";
 import { LucideArrowBigLeft } from "lucide-react";
-import { Link } from "react-router";
 
 /* 
 Display this app navigation and redirect to prev and next pokemon when clicked on.

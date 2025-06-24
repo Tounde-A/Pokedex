@@ -1,4 +1,5 @@
 import { ItemReview } from "./ItemReview";
+import s from "../../components/pokedex.module.css"
 
 /* 
 Display this app list of item review.
@@ -6,7 +7,7 @@ Display this app list of item review.
 
 export const ListItemReview = ({ list, onUpdate }) => {
     return (
-        <ul>
+        <ul className={ s.listReview }>
             {list.map((review, index) => {
                 return (
                     <ItemReview

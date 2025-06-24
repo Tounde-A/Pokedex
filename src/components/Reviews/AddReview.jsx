@@ -1,4 +1,4 @@
-import { useState } from "react";
+import s from "../../components/pokedex.module.css"
 
 /* 
 Display this app title with input for add a new user review with deflaut author: Me.
@@ -6,9 +6,9 @@ Display this app title with input for add a new user review with deflaut author:
 
 export const AddReview = ({ title, value, onChange, onKeyDown }) => {
     return (
-        <>
+        <div className={ s.newReview }>
             <h2>{ title }</h2>
-            <label htmlFor="review">Add Review</label>
+            <label className={ s.srOnly } htmlFor="review">Add Review</label>
             <input
                 id="review"
                 name="review"
@@ -18,6 +18,6 @@ export const AddReview = ({ title, value, onChange, onKeyDown }) => {
                 onChange={ (e) => onChange(e.target.value) }
                 onKeyDown={ onKeyDown }
             />
-        </>
+        </div>
     );
 }

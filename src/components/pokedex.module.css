@@ -1,7 +1,27 @@
+:root {
+  --text-color-1: #ffffff;
+}
+
+.srOnly {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  width: 1px;
+  position: absolute;
+  white-space: nowrap;
+}
+
 .header {
   padding: 1rem;
   background-color: bisque;
 }
+
+* ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Home */
 
 .logo {
   width: fit-content;
@@ -24,4 +44,393 @@
   background-position: top center;
   width: 100%;
   height: 100%;
+}
+
+.bg-img nav li svg {
+  fill: #00000099;
+  stroke: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.searchContent {
+  padding-inline: 1.5rem;
+  margin-block: 2rem;
+}
+
+.searchBar {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid goldenrod;
+  padding: .5rem 1rem;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 240px));
+  gap: 1rem;
+  margin-bottom: 4rem;
+  padding-inline: 3rem;
+  max-width: 1600px;
+  justify-content: center;
+}
+
+.listItem li {
+  width: 15rem;
+  height: 15rem;
+  box-shadow: 0px 2px 8px 1px lightgray ;
+  border-radius: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+
+  cursor: pointer;
+  transition: .35s ease-in-out;
+}
+
+.listItem img {
+  width: 8rem;
+  height: 8rem;
+}
+
+.typePkmn {
+  display: flex;
+  gap: .5rem;
+}
+
+.typePkmn span {
+  border-radius: 100px;
+  padding: .1rem 1rem;
+  font-size: 14px;
+  color: var(--text-color-1);
+  box-shadow: 0px 0px 3px 1px lightgray ;
+}
+
+.namePkmn {
+  margin-bottom: .5rem;
+}
+
+/* Detail */
+
+.pagination {
+  padding-inline: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailImg {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  justify-self: center;
+}
+
+.detailImg::selection {
+  background-color: transparent;
+}
+
+.pkmnContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.pkmnContent .namePkmn {
+  font-weight: bold;
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 3rem;
+}
+
+.progressBar li {
+  display: flex;
+  flex-direction: column;
+}
+
+.borderInput {
+  width: 300px;
+  background: #eee;
+  height: 10px;
+  border-radius: 100px;
+  border: 1px solid grey;
+}
+
+.statInput {
+  height: 100%;
+  border-radius: 100px;
+}
+
+.contentReview {
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contentReview h2 {
+  margin-block: .5rem;
+  text-align: center;
+}
+
+.likeCount {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: .3rem;
+}
+
+.likeCount svg {
+  fill: #e44d39;
+  stroke: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.newReview {
+  width: 100%;
+}
+
+.newReview input {
+  display: flex;
+  justify-self: center;
+  width: 98%;
+  padding: .3rem .5rem;
+  margin-top: .6rem;
+  border-radius: 100px;
+  border: 2px solid gray;
+}
+
+.listReview {
+  margin-top: 0;
+}
+
+.listReview li p {
+  overflow-wrap: break-word;
+}
+
+/* Error404 */
+
+.error404 {
+  position: relative;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.errorBG {
+  position: absolute;
+  content: "";
+  inset: 0;
+
+  background-image: url(../assets/img/Artikodin_Electhor_Sulfura.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  opacity: .15;
+}
+
+.error404 a {
+  position: relative;
+  display: flex;
+  margin-top: 2rem;
+  justify-self: center;
+  text-decoration: none;
+  transition: .35s ease-in-out;
+  background: linear-gradient(90deg, deeppink 50%, purple 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error404 a:hover + .errorBG {
+  background-image: url(../assets/img/Mewtwo-Mew-Pokemon.png);
+  background-size: 900px;
+}
+
+.error404 h1 {
+  margin-block: 0;
+  line-height: 1;
+}
+
+.titleHovered {
+  transform: scale(120%);
+  text-shadow: 0px 0px 3px deepskyblue;
+  transition: .35s ease-in-out;
+}
+
+/* Version Tablette */
+@media only screen and (min-width: 48em) and (max-width: 79.7em) {
+
+  /* Detail */
+
+  .bg-img {
+    position: relative;
+  }
+
+  .bg-img nav {
+    position: absolute;
+    width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 7rem;
+  }
+
+  .bg-img nav li svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .detailImg {
+    margin-top: 3rem;
+  }
+
+  .progressBar li > div {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 170px 300px;
+    gap: .5rem;
+    align-items: center;
+  }
+
+  .progressBar li div:nth-of-type(1) div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .newReview input,
+  .listReview {
+    width: 500px;
+  }
+  
+}
+
+/* Version Desktop */
+@media only screen and (min-width: 79.7em) {
+
+  /* Home */
+
+  .listItem li:hover {
+    background-color: ghostwhite;
+    transform: translateY(1.5%);
+  }
+
+  /* Detail */
+
+  .bg-img {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 75px 105px 1fr 1fr 1fr;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .bg-img nav svg {
+    cursor: pointer;
+  }
+
+  .bg-img nav li:last-of-type svg,
+  .bg-img nav li:first-of-type svg {
+    transition: .35s ease-in-out;
+  }
+
+  .bg-img nav li:first-of-type svg:hover {
+    transform: translateX(-10%);
+  }
+
+  .bg-img nav li:last-of-type svg:hover {
+    transform: translateX(10%);
+  }
+
+
+  .bg-img nav {
+    grid-column: 1/4;
+    grid-row: 1/2;
+  }
+
+  .bg-img .detailImg {
+    grid-column: 1/2;
+    grid-row: 2/4;
+    width: 300px;
+    height: 300px;
+    padding-left: 1rem;
+    margin: auto 0;
+  }
+
+  .bg-img .pkmnContent,
+  .bg-img .progressBar {
+    grid-column: 2/3;
+  }
+
+  .bg-img .namePkmn {
+    grid-row: 2/3;
+    font-size: 1.5em;
+    margin-block-start: auto;
+  }
+
+  .bg-img .progressBar {
+    grid-row: 3/4;
+    margin-block: 0;
+  }
+
+  .bg-img .contentReview {
+    grid-column: 3/4;
+    grid-row: 2/6;
+  }
+
+  .pkmnContent {
+    justify-content: unset;
+  }
+
+  .progressBar li > div {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 170px 300px;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progressBar li div:nth-of-type(1) div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contentReview {
+    padding-inline: 0;
+    padding-right: 2rem;
+    align-items: flex-start;
+  }
+
+  .contentReview h2 {
+    text-align: left;
+  }
+
+  .newReview input,
+  .listReview {
+    max-width: 400px;
+  }
+
+  .likeCount {
+    cursor: default;
+  }
+
+  .likeCount svg {
+    cursor: pointer;
+  }
+
 }

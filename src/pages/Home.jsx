@@ -2,6 +2,7 @@ import { ListItem } from "../components/PokemonCards/ListItem";
 import { Search } from "../components/Search";
 import { viewAllPkmn } from "../API/PokedexApi";
 import { useState, useEffect } from "react";
+import s from "../components/pokedex.module.css"
 
 export const Home = () => {
 
@@ -30,7 +31,7 @@ export const Home = () => {
                 <Search onSearch={setSearchTerm} />
             </div>
             {filteredList.length > 0 ? (
-                <ListItem list={filteredList} />
+                <ListItem className={s.listItem} list={filteredList} />
             ) : (
                 <p>Aucun résultat pour la recherche : "<strong>{searchTerm}</strong>"</p>
             )}

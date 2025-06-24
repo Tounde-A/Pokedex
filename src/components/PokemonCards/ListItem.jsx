@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 Display this app list of pokemon item and redirect to the detail page when clicked on.
 */
 
-export const ListItem = ({ list }) => {
+export const ListItem = ({ list, className }) => {
 
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export const ListItem = ({ list }) => {
     };
 
     return (
-        <ul>
+        <ul className={ className }>
             {list.map((pokemon, index) => {
                 const imgUrl = `${pkmnImg}${pokemon.id}${svg}`;
                 return (
